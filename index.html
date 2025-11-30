@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rasmus Hogslätt - Software Developer</title>
+    <meta name="description" content="Personal website of Rasmus Hogslätt, Software Developer.">
+    <link rel="stylesheet" href="style.css">
+    <!-- Preconnect for fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400&family=Inter:wght@400;500;600;700&display=swap"
+        rel="stylesheet">
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+
+<body>
+    <div class="container">
+        <!-- Bento Grid Container -->
+        <div class="bento-grid">
+
+            <!-- Profile / Hero Card -->
+            <div class="bento-card col-span-2 row-span-2 profile-card">
+                <div class="profile-content">
+                    <img src="" alt="Profile" id="profile-image" class="profile-image">
+                    <div>
+                        <h1 class="profile-name" id="profile-name"></h1>
+                        <p class="profile-title" id="profile-title"></p>
+                        <div class="social-links" id="social-links"></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- About Card -->
+            <div class="bento-card col-span-2 about-card">
+                <h2 class="card-title">About</h2>
+                <div id="about-text" class="about-text"></div>
+            </div>
+
+            <!-- Consulting Card (New) -->
+            <div class="bento-card consulting-card">
+                <div class="consulting-content">
+                    <h2 class="card-title">Consulting</h2>
+                    <p id="consulting-desc" class="consulting-desc"></p>
+                    <ul id="consulting-services" class="consulting-services"></ul>
+                    <a href="" id="consulting-cta" class="btn btn-primary w-full"></a>
+                </div>
+            </div>
+
+            <!-- Experience Card -->
+            <div class="bento-card col-span-2 row-span-2 experience-card">
+                <h2 class="card-title">Experience</h2>
+                <div id="experience-list" class="experience-list"></div>
+            </div>
+
+            <!-- Projects Section (Spans full width, contains its own grid) -->
+            <div class="bento-card col-span-3 projects-container">
+                <h2 class="card-title">Selected Projects</h2>
+                <div id="projects-grid" class="projects-grid"></div>
+            </div>
+
+            <!-- Education Card -->
+            <div class="bento-card education-card">
+                <h2 class="card-title">Education</h2>
+                <div id="education-list"></div>
+            </div>
+
+        </div>
+
+        <footer class="footer">
+            <p>© <span id="year"></span> Rasmus Hogslätt</p>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,384 @@
+:root {
+    --bg-color: #18181b;
+    /* Zinc 900 */
+    --card-bg: #27272a;
+    /* Zinc 800 */
+    --text-primary: #f4f4f5;
+    /* Zinc 100 */
+    --text-secondary: #a1a1aa;
+    /* Zinc 400 */
+    --accent: #3b82f6;
+    /* Blue 500 */
+
+    --border: #3f3f46;
+    /* Zinc 700 */
+    --hover-bg: #3f3f46;
+    --item-bg: #18181b;
+    /* Darker than card for contrast */
+
+    --font-sans: 'Inter', sans-serif;
+    --font-mono: 'Space Mono', monospace;
+
+    --radius: 12px;
+    --gap: 16px;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-primary);
+    font-family: var(--font-sans);
+    line-height: 1.6;
+    padding: 2rem 1rem;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Bento Grid Layout */
+.bento-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--gap);
+    grid-auto-rows: minmax(200px, auto);
+}
+
+@media (min-width: 768px) {
+    .bento-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (min-width: 1024px) {
+    .bento-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+/* Utility Classes for Grid Spans */
+@media (min-width: 1024px) {
+    .col-span-2 {
+        grid-column: span 2;
+    }
+
+    .col-span-3 {
+        grid-column: span 3;
+    }
+
+    .row-span-2 {
+        grid-row: span 2;
+    }
+}
+
+/* Card Styles */
+.bento-card {
+    background-color: var(--card-bg);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.2s, border-color 0.2s;
+    overflow: hidden;
+}
+
+.bento-card:hover {
+    border-color: var(--text-secondary);
+    transform: translateY(-2px);
+}
+
+.card-title {
+    font-family: var(--font-mono);
+    font-size: 1.25rem;
+    margin-bottom: 1rem;
+    color: var(--text-primary);
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+/* Profile Card */
+.profile-card {
+    justify-content: center;
+    background: linear-gradient(to bottom right, #27272a, #18181b);
+}
+
+.profile-content {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+}
+
+.profile-image {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid var(--border);
+}
+
+.profile-name {
+    font-size: 2rem;
+    font-weight: 700;
+    line-height: 1.1;
+}
+
+.profile-title {
+    color: var(--text-secondary);
+    font-family: var(--font-mono);
+    margin-bottom: 1rem;
+}
+
+.social-links {
+    display: flex;
+    gap: 1rem;
+}
+
+.social-link {
+    color: var(--text-secondary);
+    transition: color 0.2s;
+}
+
+.social-link:hover {
+    color: var(--text-primary);
+}
+
+/* About Card */
+.about-text p {
+    margin-bottom: 0.75rem;
+    color: var(--text-secondary);
+    font-size: 0.95rem;
+}
+
+/* Consulting Card */
+.consulting-card {
+    background: linear-gradient(135deg, #2e2e3a 0%, #27272a 100%);
+    border: 1px solid var(--accent);
+}
+
+.consulting-content {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.consulting-desc {
+    color: var(--text-secondary);
+    margin-bottom: 1rem;
+    font-size: 0.9rem;
+}
+
+.consulting-services {
+    list-style: none;
+    margin-bottom: 1.5rem;
+    flex-grow: 1;
+}
+
+.consulting-services li {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.85rem;
+    margin-bottom: 0.5rem;
+    color: var(--text-primary);
+}
+
+.consulting-services li::before {
+    content: "•";
+    color: var(--accent);
+}
+
+.btn {
+    display: inline-block;
+    padding: 0.75rem 1.5rem;
+    border-radius: 8px;
+    text-align: center;
+    font-weight: 600;
+    text-decoration: none;
+    transition: opacity 0.2s;
+}
+
+.btn-primary {
+    background-color: var(--accent);
+    color: white;
+}
+
+.btn-primary:hover {
+    opacity: 0.9;
+}
+
+.w-full {
+    width: 100%;
+}
+
+/* Experience List */
+.experience-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.exp-item {
+    display: flex;
+    gap: 1rem;
+}
+
+.exp-logo {
+    width: 40px;
+    height: 40px;
+    border-radius: 8px;
+    background-color: #ffffff;
+    padding: 2px;
+    object-fit: contain;
+    flex-shrink: 0;
+}
+
+.exp-details h3 {
+    font-size: 1rem;
+    font-weight: 600;
+}
+
+.exp-meta {
+    font-size: 0.8rem;
+    color: var(--text-secondary);
+    margin-bottom: 0.25rem;
+}
+
+.exp-desc {
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+    line-height: 1.4;
+}
+
+/* Projects Grid (Nested) */
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 1rem;
+}
+
+.project-item {
+    background-color: var(--item-bg);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    overflow: hidden;
+    transition: transform 0.2s, border-color 0.2s;
+    text-decoration: none;
+    color: inherit;
+    display: flex;
+    flex-direction: column;
+}
+
+.project-item:hover {
+    transform: translateY(-2px);
+    border-color: var(--text-secondary);
+}
+
+.project-img {
+    width: 100%;
+    height: 140px;
+    object-fit: cover;
+    background-color: var(--card-bg);
+}
+
+.project-info {
+    padding: 1rem;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.project-title {
+    font-size: 0.95rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+}
+
+.project-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.25rem;
+    margin-top: auto;
+}
+
+.tag {
+    font-size: 0.7rem;
+    padding: 2px 6px;
+    background-color: var(--border);
+    border-radius: 4px;
+    color: #d4d4d4;
+}
+
+.project-actions {
+    padding: 0.75rem 1rem;
+    display: flex;
+    gap: 0.5rem;
+    margin-top: auto;
+    border-top: 1px solid var(--border);
+}
+
+.project-btn {
+    font-size: 0.75rem;
+    padding: 0.25rem 0.5rem;
+    border-radius: 4px;
+    text-decoration: none;
+    color: var(--text-secondary);
+    background-color: var(--border);
+    transition: background-color 0.2s, color 0.2s;
+    display: flex;
+    align-items: center;
+    gap: 0.25rem;
+}
+
+.project-btn:hover {
+    background-color: var(--text-secondary);
+    color: var(--bg-color);
+}
+
+.project-btn i {
+    width: 12px;
+    height: 12px;
+}
+
+/* Education */
+.edu-item {
+    margin-bottom: 1rem;
+}
+
+.edu-degree {
+    font-weight: 600;
+    font-size: 0.95rem;
+}
+
+.edu-school {
+    color: var(--text-secondary);
+    font-size: 0.85rem;
+}
+
+/* Footer */
+.footer {
+    margin-top: 3rem;
+    text-align: center;
+    color: var(--text-secondary);
+    font-size: 0.85rem;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .profile-content {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .profile-image {
+        width: 120px;
+        height: 120px;
+    }
+}

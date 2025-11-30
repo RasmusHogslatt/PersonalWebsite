@@ -1,0 +1,272 @@
+{
+    "profile": {
+        "name": "Rasmus Hogslätt",
+        "title": "Software Engineer",
+        "image": "assets/me.jpg",
+        "socials": [
+            {
+                "name": "GitHub",
+                "url": "https://github.com/RasmusHogslatt"
+            },
+            {
+                "name": "LinkedIn",
+                "url": "https://www.linkedin.com/in/rasmushogslatt/"
+            },
+            {
+                "name": "Email",
+                "url": "mailto:r.hogslatt@gmail.com"
+            }
+        ]
+    },
+    "about": {
+        "title": "About Me",
+        "paragraphs": [
+            "Hi there! I'm a software engineer in Sweden. My favorite programming language is Rust, but I am also familiar with languages like C++, Java, Python, etc.",
+            "I am curious about new technologies, so when given the time, I often tend to dabble with things. This has led me to build drones, RC-cars and becoming a Rust evangelist.",
+            "I also created <a href=\"https://mathdrilling.com\">mathdrilling.com</a>/<a href=\"https://mermatte.se\">mermatte.se</a>, a website for students to practice math. They are fully written in Rust. These projects are under my own company Ankrosoft AB."
+        ],
+        "cards": [
+            {
+                "icon": "User",
+                "text": "Software engineer"
+            },
+            {
+                "icon": "Code",
+                "text": "Rust"
+            },
+            {
+                "icon": "Zap",
+                "text": "Safe & Performant code"
+            }
+        ]
+    },
+    "education": [
+        {
+            "degree": "Master's Degree in Technology of Media",
+            "school": "Linköping University",
+            "year": "2024",
+            "description": "Specialized in computer graphics and AI. This degree is similar to a typical computer science degree, albeit with higher emphasis on mathematics, graphics rendering and GPU computing and less so on the hardware of the CPU etc. During my last year I received a scholarship for academic performance."
+        }
+    ],
+    "experience": [
+        {
+            "title": "Rusty Engineer",
+            "company": "Ankrosoft AB",
+            "logo": "assets/images/logos/ankrosoft.jpg",
+            "period": "2025 Aug - Present",
+            "description": "My own company. I am open to short term contracts during weekends/evenings. I am also offer my own software products under this company, for example mathdrilling.com.",
+            "skills": [
+                "Coding",
+                "Business"
+            ]
+        },
+        {
+            "title": "Software Engineer",
+            "company": "Mylab",
+            "logo": "assets/images/logos/mylab.png",
+            "period": "2025 Apr - Present",
+            "description": "Development of medical software and DevOps.",
+            "skills": [
+                "DevOps",
+                "Azure",
+                "Javascript",
+                "Objectscript",
+                "Git"
+            ]
+        },
+        {
+            "title": "Rust Backend Engineer",
+            "company": "ThirdAct",
+            "logo": "assets/images/logos/thirdact.png",
+            "period": "2024 Nov - 2025 Apr",
+            "description": "Developed backend code in Rust to speed up interactions with Azure Cosmos databases. This involved handling large amounts of data interfacing with various APIs. I also created a library for handling scheduling and availability for stores etc.",
+            "skills": [
+                "Rust",
+                "Azure",
+                "Javascript",
+                "APIs",
+                "Git"
+            ]
+        },
+        {
+            "title": "Software Engineer",
+            "company": "Saab",
+            "logo": "assets/images/logos/saab.png",
+            "period": "2024 Jun - 2024 Nov",
+            "description": "Maintained and developed software used in some of Saab's underwater products.",
+            "skills": [
+                "Git",
+                "Linux",
+                "Ada",
+                "Pascal",
+                "CI/CD"
+            ]
+        },
+        {
+            "title": "Research Assistant Engineer",
+            "company": "Linköping University",
+            "logo": "assets/images/logos/liu.png",
+            "period": "2022 - 2023",
+            "description": "Worked through summer and part time during coming semesters on the open source project Inviwo. It is an open source scientific visualization software developed mainly in C++ and OpenGL.",
+            "skills": [
+                "C++",
+                "Python",
+                "OpenGL",
+                "3D-Rendering"
+            ]
+        },
+        {
+            "title": "Software Engineer & Electronics Assembly",
+            "company": "Easy Laser",
+            "logo": "assets/images/logos/easylaser.jpeg",
+            "period": "2018 - 2022",
+            "description": "Worked full time before university, assembling laser based measuring devices. Here I saw how all steps of the supply chain worked, given that everything was done in house. Throughout studies, I worked part time during summer as software developer.",
+            "skills": [
+                "C#",
+                "Python",
+                "Electronics",
+                "Soldering"
+            ]
+        },
+        {
+            "title": "Math Assistant Teacher",
+            "company": "Linköping University",
+            "logo": "assets/images/logos/liu.png",
+            "period": "2020 - 2021",
+            "description": "I assisted in teaching fundamental math, and single- and multivariable calculus for first year university students. This entailed having my own classes where I held presentations and students were able to ask me questions. I also assisted in coding courses, such as object oriented programming and immersive visualization.",
+            "skills": [
+                "Math",
+                "Teaching"
+            ]
+        }
+    ],
+    "projects": [
+        {
+            "title": "Working with agent on interactive raytracer",
+            "description": "Purpose was to explore how I AI-agents can be used when coding in a field I'm familiar with.",
+            "image": "assets/projects/agenttracer.png",
+            "tags": [
+                "Rust",
+                "AI agent",
+                "3D-graphics"
+            ],
+            "demo": "https://rasmushogslatt.github.io/interactive_wasm_raytracer/",
+            "github": "https://github.com/RasmusHogslatt/interactive_wasm_raytracer"
+        },
+        {
+            "title": "Visualizing RC car in Mixed Reality",
+            "description": "Visualization and control of an RC car in Mixed Reality. Implemented in Rust, involving contributions to the open source Bevy Engine. This was part of my master's thesis.",
+            "image": "assets/projects/thesis.png",
+            "tags": [
+                "Rust",
+                "C",
+                "MR",
+                "3D-graphics",
+                "Android"
+            ],
+            "demo": "https://www.youtube.com/watch?v=vJKHNgr7sD4",
+            "report": "assets/reports/MasterThesis.pdf"
+        },
+        {
+            "title": "Guitar Tablature App",
+            "description": "Many people that play the Guitar find Guitar tablature very useful, as traditional musical notation can unncessarily hard to learn if you only care about playing the Guitar. This program parses MusicXML files, a widely used musical notation format for any instrument, into Guitar tablature and lets you play back what the song is meant to sound like.",
+            "image": "assets/projects/tabapp.png",
+            "tags": [
+                "Rust",
+                "Audio"
+            ],
+            "github": "https://github.com/RasmusHogslatt/cdefgab",
+            "demo": "https://rasmushogslatt.github.io/cdefgab/"
+        },
+        {
+            "title": "Monte Carlo Path Tracer",
+            "description": "A Monte Carlo pathtracer that renders realisitc reflections, refractions and direct and indirect illumination of diffuse objects.",
+            "image": "assets/projects/mcpt.png",
+            "tags": [
+                "C++",
+                "3D-Rendering",
+                "Mathematics"
+            ],
+            "github": "https://github.com/RasmusHogslatt/raytracer/tree/master",
+            "report": "assets/reports/MCPT.pdf"
+        },
+        {
+            "title": "Water Simulation",
+            "description": "Real-time water simulation with adjustable parameters.",
+            "image": "assets/projects/pw.png",
+            "tags": [
+                "C++",
+                "OpenGL",
+                "Shader",
+                "GLSL",
+                "Rendering",
+                "Mathematics"
+            ],
+            "github": "https://github.com/RasmusHogslatt/Procedural-waves",
+            "demo": "https://www.youtube.com/watch?v=N_k3nFntPOg&t=2s",
+            "report": "assets/reports/pw.pdf"
+        },
+        {
+            "title": "Flappy Bird Clone",
+            "description": "Implemented my own genetic training algorithm and neural networks from scratch in Rust and used these to train birds in my own Bevy based implementation of the Flappy Bird game.",
+            "image": "assets/projects/flappybird.png",
+            "tags": [
+                "Rust",
+                "AI",
+                "ML"
+            ],
+            "demo": "https://www.youtube.com/watch?v=uUAlo93hbfk",
+            "report": "assets/reports/flappybird-report.pdf"
+        },
+        {
+            "title": "DnCNN Image Denoising",
+            "description": "Implemented my own deep learning convolutional neural network, DnCNN, for denoising images.",
+            "image": "assets/projects/dncnn.png",
+            "tags": [
+                "Python",
+                "Deep Learning",
+                "ML",
+                "CNN"
+            ]
+        },
+        {
+            "title": "Legonization of Images",
+            "description": "A program that converts an uploaded image into a lego mosaic and calculates pieces required to reproduce with actual bricks. Support multiple brick types. Color matching was done using CIELAB.",
+            "image": "assets/projects/legonization.png",
+            "tags": [
+                "Matlab",
+                "Image Processing",
+                "TypeScript"
+            ],
+            "report": "assets/reports/Legonization.pdf"
+        },
+        {
+            "title": "Multithreaded MD5-based password cracker",
+            "description": "Explored multithreading in Rust by implementing a MD5 based password cracker.",
+            "tags": [
+                "Rust",
+                "Threading"
+            ],
+            "github": "https://github.com/RasmusHogslatt/Password-Cracker"
+        },
+        {
+            "title": "Game of Life",
+            "description": "For my first project in Rust, I implemented Conway's Game of Life. The user clicks on the tiles that should be active and then starts the simulation. It is fascinating how simple rules can produce very complex patterns.",
+            "image": "assets/projects/gameoflife.png",
+            "tags": [
+                "Rust"
+            ],
+            "github": "https://github.com/RasmusHogslatt/GameOfLife"
+        }
+    ],
+    "consulting": {
+        "title": "Consulting",
+        "description": "I am available for short-term consulting gigs during weekends and evenings under my own company Ankrosoft AB. If you need help with Rust development, tasks not requiring a lot of time, I'm available for as short as 3 hour contracts for a fee as low as 700 SEK/hour. Let's talk.",
+        "services": [
+            "Rust Development",
+            "General coding tasks"
+        ],
+        "cta": "Get in touch",
+        "email": "r.hogslatt@gmail.com"
+    }
+}
