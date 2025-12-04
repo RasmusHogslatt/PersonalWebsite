@@ -169,6 +169,14 @@ body {
     height: 100%;
 }
 
+.consulting-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+    gap: 0.75rem;
+}
+
 .consulting-desc {
     color: var(--text-secondary);
     margin-bottom: 1rem;
@@ -238,6 +246,17 @@ body {
     padding: 2px;
     object-fit: contain;
     flex-shrink: 0;
+}
+
+.consulting-logo {
+    width: 80px;
+    height: 80px;
+    border-radius: 8px;
+    background-color: #ffffff;
+    padding: 2x;
+    object-fit: contain;
+    flex-shrink: 0;
+    margin-bottom: 0rem;
 }
 
 .exp-details h3 {
@@ -380,5 +399,19 @@ body {
     .profile-image {
         width: 120px;
         height: 120px;
+    }
+}
+
+/* Responsive: Stack on mobile */
+@media (max-width: 480px) {
+    .consulting-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.5rem;
+    }
+
+    .consulting-logo {
+        align-self: flex-end;
+        /* Keeps logo right-aligned even when stacked */
     }
 }

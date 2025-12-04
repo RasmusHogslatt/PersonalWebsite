@@ -53,11 +53,13 @@ function renderAbout(about) {
 
 function renderConsulting(consulting) {
     if (!consulting) return;
-
+    document.getElementById('consulting-company-image').src = consulting.image;
+    document.getElementById('consulting-company-image').onerror = function () {
+        this.src = 'assets/placeholder-logo.svg';
+    };
     document.getElementById('consulting-desc').textContent = consulting.description;
     document.getElementById('consulting-cta').textContent = consulting.cta;
     document.getElementById('consulting-cta').href = `mailto:${consulting.email}`;
-
     const list = document.getElementById('consulting-services');
     consulting.services.forEach(service => {
         const li = document.createElement('li');
