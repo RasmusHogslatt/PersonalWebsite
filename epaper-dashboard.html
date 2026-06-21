@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>E-Paper Dashboard - Rasmus Hogslätt</title>
+    <meta name="description"
+        content="A self-built e-paper information dashboard: Rust firmware on an ESP32, soldered by hand and housed in a 3D-printed case.">
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400&family=Inter:wght@400;500;600;700&display=swap"
+        rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        /* Page-specific styles for the e-paper dashboard write-up */
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-family: var(--font-mono);
+            font-size: 0.85rem;
+            margin-bottom: 1.5rem;
+            transition: color 0.2s;
+        }
+
+        .back-link:hover {
+            color: var(--text-primary);
+        }
+
+        .back-link i {
+            width: 16px;
+            height: 16px;
+        }
+
+        .page-stack {
+            display: flex;
+            flex-direction: column;
+            gap: var(--gap);
+        }
+
+        .hero-kicker {
+            font-family: var(--font-mono);
+            font-size: 0.8rem;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            color: var(--accent);
+            margin-bottom: 0.75rem;
+        }
+
+        .hero-title {
+            font-size: clamp(2rem, 5vw, 3rem);
+            font-weight: 700;
+            line-height: 1.05;
+            margin-bottom: 1rem;
+        }
+
+        .hero-lead {
+            color: var(--text-secondary);
+            font-size: 1.05rem;
+            max-width: 60ch;
+        }
+
+        .hero-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.4rem;
+            margin-top: 1.5rem;
+        }
+
+        .section-lead {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+            margin-bottom: 1.5rem;
+            max-width: 65ch;
+        }
+
+        /* Build steps */
+        .build-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 1rem;
+        }
+
+        .build-step {
+            background-color: var(--item-bg);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 1.25rem;
+        }
+
+        .build-step .step-icon {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 38px;
+            height: 38px;
+            border-radius: 8px;
+            background-color: rgba(59, 130, 246, 0.12);
+            color: var(--accent);
+            margin-bottom: 0.75rem;
+        }
+
+        .build-step .step-icon i {
+            width: 20px;
+            height: 20px;
+        }
+
+        .build-step h3 {
+            font-size: 0.95rem;
+            font-weight: 600;
+            margin-bottom: 0.35rem;
+        }
+
+        .build-step p {
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+            line-height: 1.45;
+        }
+
+        /* Modes gallery */
+        .modes-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1rem;
+        }
+
+        .mode-card {
+            background-color: var(--item-bg);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            transition: transform 0.2s, border-color 0.2s;
+        }
+
+        .mode-card:hover {
+            transform: translateY(-2px);
+            border-color: var(--text-secondary);
+        }
+
+        .mode-card img {
+            width: 100%;
+            aspect-ratio: 4 / 3;
+            object-fit: cover;
+            background-color: var(--card-bg);
+        }
+
+        .mode-body {
+            padding: 1.1rem 1.25rem 1.35rem;
+        }
+
+        .mode-body h3 {
+            font-size: 1rem;
+            font-weight: 600;
+            margin-bottom: 0.35rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .mode-body p {
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+            line-height: 1.45;
+        }
+
+        .cta-row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.75rem;
+            margin-top: 0.5rem;
+        }
+
+        .btn-secondary {
+            background-color: var(--border);
+            color: var(--text-primary);
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .btn-secondary:hover {
+            background-color: var(--hover-bg);
+            opacity: 1;
+        }
+
+        .btn i {
+            width: 16px;
+            height: 16px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <a href="index.html" class="back-link"><i data-lucide="arrow-left"></i> Back to home</a>
+
+        <div class="page-stack">
+            <!-- Hero -->
+            <section class="bento-card">
+                <p class="hero-kicker">Hardware · Embedded · Rust</p>
+                <h1 class="hero-title">E-Paper Dashboard</h1>
+                <p class="hero-lead">
+                    I have always been fascinated by e-paper displays - that paper-like look that holds an
+                    image with zero power draw. So I built my own little information dashboard around one. I wrote
+                    the firmware in Rust, flashed it onto an ESP32, soldered the electronics together by hand, and
+                    printed a case to put it all in. Now it sits on my counter and shows whatever I feel like.
+                </p>
+                <div class="hero-tags">
+                    <span class="tag">Rust</span>
+                    <span class="tag">ESP32</span>
+                    <span class="tag">E-Paper</span>
+                    <span class="tag">Embedded</span>
+                    <span class="tag">Soldering</span>
+                    <span class="tag">3D Printing</span>
+                </div>
+            </section>
+
+            <!-- How it's built -->
+            <section class="bento-card">
+                <h2 class="card-title"><i data-lucide="wrench"></i> How it's built</h2>
+                <p class="section-lead">
+                    The whole thing is a fun excuse to touch every layer of the stack - from soldering iron to async
+                    Rust to a CAD model - and end up with a physical object I actually use. I also got to set up the 
+                    ESP32 as a WiFi access point which let me use my phone to provide the ESP32 with WiFi credentials.
+                </p>
+                <div class="build-grid">
+                    <div class="build-step">
+                        <span class="step-icon"><i data-lucide="cpu"></i></span>
+                        <h3>ESP32 microcontroller</h3>
+                        <p>A Wi-Fi-capable ESP32 drives the display and pulls live data from the internet over its
+                            wireless connection.</p>
+                    </div>
+                    <div class="build-step">
+                        <span class="step-icon"><i data-lucide="code"></i></span>
+                        <h3>Firmware in Rust</h3>
+                        <p>All of the logic - networking, fetching APIs, laying out each screen and pushing pixels to
+                            the panel - is written in Rust and flashed onto the chip.</p>
+                    </div>
+                    <div class="build-step">
+                        <span class="step-icon"><i data-lucide="zap"></i></span>
+                        <h3>Hand-soldered</h3>
+                        <p>The display, controller and wiring were soldered together. This required some reading of pinout diagrams...</p>
+                    </div>
+                    <div class="build-step">
+                        <span class="step-icon"><i data-lucide="box"></i></span>
+                        <h3>3D-printed casing</h3>
+                        <p>A custom enclosure printed to fit the panel and hardware.</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Modes -->
+            <section class="bento-card">
+                <h2 class="card-title"><i data-lucide="layout-dashboard"></i> What it shows</h2>
+                <p class="section-lead">
+                    The dashboard cycles through several modes. Because it's all my own firmware, adding a new screen
+                    is just another function that draws to the display.
+                </p>
+                <div class="modes-grid">
+                    <div class="mode-card">
+                        <img src="assets/projects/dashboard_clock.jpg" alt="Block-based clock on the e-paper display"
+                            loading="lazy">
+                        <div class="mode-body">
+                            <h3><i data-lucide="clock"></i> Block clock</h3>
+                            <p>A clock with a custom, block-based design I came up with - the time is read from the
+                                pattern of filled and empty cells rather than digits.</p>
+                        </div>
+                    </div>
+                    <div class="mode-card">
+                        <img src="assets/projects/dashboard_hackernews.jpg" alt="Hacker News leaderboard on the display"
+                            loading="lazy">
+                        <div class="mode-body">
+                            <h3><i data-lucide="newspaper"></i> Hacker News</h3>
+                            <p>The current top stories from the Hacker News leaderboard, fetched live so the front
+                                page is always up to date.</p>
+                        </div>
+                    </div>
+                    <div class="mode-card">
+                        <img src="assets/projects/dashboard_dad_jokes.jpg" alt="A dad joke shown on the display"
+                            loading="lazy">
+                        <div class="mode-body">
+                            <h3><i data-lucide="laugh"></i> Dad jokes</h3>
+                            <p>A fresh dad joke every 30 seconds. Low stakes, high reward - and a nice test of
+                                refreshing the panel on a timer.</p>
+                        </div>
+                    </div>
+                    <div class="mode-card">
+                        <img src="assets/projects/dashboard_disney.jpg"
+                            alt="Disney character filmography on the display" loading="lazy">
+                        <div class="mode-body">
+                            <h3><i data-lucide="clapperboard"></i> Disney filmography</h3>
+                            <p>Browse a Disney character and see every film, short, TV show and video game they appear
+                                in - pulled from an API and laid out by category.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- CTA -->
+            <section class="bento-card">
+                <h2 class="card-title"><i data-lucide="message-square"></i> Want to chat about it?</h2>
+                <p class="section-lead">
+                    Happy to talk e-paper, embedded Rust, or hardware tinkering in general. Find me here:
+                </p>
+                <div class="cta-row">
+                    <a href="https://www.linkedin.com/in/rasmushogslatt/" target="_blank" class="btn btn-secondary"><i
+                            data-lucide="linkedin"></i> LinkedIn</a>
+                    <a href="https://github.com/RasmusHogslatt" target="_blank" class="btn btn-secondary"><i
+                            data-lucide="github"></i> GitHub</a>
+                    <a href="index.html" class="btn btn-secondary"><i data-lucide="arrow-left"></i> Back to home</a>
+                </div>
+            </section>
+        </div>
+
+        <footer class="footer">
+            <p>© <span id="year"></span> Rasmus Hogslätt</p>
+        </footer>
+    </div>
+
+    <script>
+        document.getElementById('year').textContent = new Date().getFullYear();
+        lucide.createIcons();
+    </script>
+</body>
+
+</html>

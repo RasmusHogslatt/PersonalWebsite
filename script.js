@@ -97,6 +97,9 @@ function renderProjects(projects) {
         const tagsHtml = project.tags.slice(0, 3).map(tag => `<span class="tag">${tag}</span>`).join('');
 
         let actionsHtml = '';
+        if (project.page) {
+            actionsHtml += `<a href="${project.page}" class="project-btn"><i data-lucide="arrow-up-right"></i> Details</a>`;
+        }
         if (project.demo) {
             actionsHtml += `<a href="${project.demo}" target="_blank" class="project-btn"><i data-lucide="external-link"></i> Demo</a>`;
         }

@@ -142,6 +142,19 @@
     ],
     "projects": [
         {
+            "title": "E-Paper Dashboard",
+            "description": "A self-built e-paper information dashboard. I wrote the firmware in Rust, flashed it onto an ESP32, soldered the electronics together, and housed it in a 3D-printed casing. It cycles through a custom block-based clock, the Hacker News leaderboard, a fresh dad joke every 30 seconds, and a Disney character filmography browser.",
+            "image": "assets/projects/dashboard_clock.jpg",
+            "tags": [
+                "Rust",
+                "ESP32",
+                "Embedded",
+                "E-Paper",
+                "Hardware"
+            ],
+            "page": "epaper-dashboard.html"
+        },
+        {
             "title": "Working with agent on interactive raytracer",
             "description": "Purpose was to explore how I AI-agents can be used when coding in a field I'm familiar with.",
             "image": "assets/projects/agenttracer.png",
