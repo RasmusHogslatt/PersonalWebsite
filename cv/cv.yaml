@@ -1,0 +1,149 @@
+# =============================================================================
+# CV content: edit this file, then run `npm run build` from the cv/ directory.
+#
+# Layout: a dark sidebar (photo, contact, skills, languages, hobbies) and a
+# light main column (profile summary, work experience, projects, education).
+#
+# Every top-level section is OPTIONAL: delete a whole block (e.g. "projects:")
+# and it simply won't appear on the CV. Text fields marked (markdown) support
+# **bold**, *italic*, and [links](https://example.com).
+# =============================================================================
+
+profile:
+  name: Rasmus Hogslätt
+  title: Software Engineer
+  location: Gothenburg, Sweden
+  email: r.hogslatt@gmail.com
+  phone: +46 720 16 23 80
+  links:
+    - label: rasmushogslatt.com
+      url: https://rasmushogslatt.com
+    - label: github.com/RasmusHogslatt
+      url: https://github.com/RasmusHogslatt
+    - label: linkedin.com/in/rasmushogslatt
+      url: https://www.linkedin.com/in/rasmushogslatt/
+  # Path is resolved relative to the repo root (shared with the website).
+  photo: ../assets/me.jpg
+
+summary: >
+  Software engineer that likes coding in Rust, with a strong background in
+  C++, Python, and 3D graphics/rendering. Curious and hands-on, having built
+  everything from embedded firmware to GPU shaders to full-stack backends.
+  I run my own company *Ankrosoft AB*, where I can do consulting on weekends/evenings and work on various projects
+  such as [mathdrilling.com](https://mathdrilling.com).
+
+skills:
+  Favorite languages: [Rust, C++, Python, Java, JavaScript, Typescript]
+  Domains:
+    [
+      Backend & APIs,
+      3D graphics & rendering,
+      Embedded systems,
+      Machine learning,
+    ]
+  Tools & Platforms: [Agentic Coding, Azure, DevOps / CI-CD, Git, Linux, OpenGL]
+
+experience:
+  - role: Software Engineer / Technical Architect
+    company: Mylab
+    period: 2025 Apr – Present
+    summary: Development of medical software, DevOps and contributing to architecting renewal of codebase.
+    highlights:
+      - "DevOps, Azure, Architecture, Agentic Coding, Javascript/Typescript, Git"
+
+  - role: Software engineer
+    company: Ankrosoft AB
+    period: 2025 Aug – Present
+    summary: >
+      My own company where I can take short-term contracts and develop my own software products, including
+      [mathdrilling.com](https://mathdrilling.com).
+
+  - role: Rust Backend Engineer
+    company: ThirdAct
+    period: 2024 Nov – 2025 Apr
+    summary: >
+      Built Rust backend services accelerating interactions with Azure Cosmos
+      DB across large datasets and multiple APIs; created a scheduling and
+      availability library.
+    highlights:
+      - "Rust, Azure, JavaScript, APIs"
+
+  - role: Software Engineer
+    company: Saab
+    period: 2024 Jun – 2024 Nov
+    summary: Maintained and developed software for underwater products.
+    highlights:
+      - "Ada, Pascal, Linux, CI/CD"
+
+  - role: Research Assistant Engineer
+    company: Linköping University
+    period: 2022 – 2023
+    summary: >
+      Contributed to Inviwo, an open-source scientific visualization
+      framework in C++ and OpenGL.
+    highlights:
+      - "C++, Python, OpenGL, 3D rendering"
+
+  - role: Software Engineer & Electronics Assembly
+    company: Easy Laser
+    period: 2018 – 2022
+    summary: >
+      Assembled laser-based measuring devices full-time pre-university;
+      developed software part-time during studies.
+    highlights:
+      - "C#, Python, Electronics"
+
+projects:
+  - name: E-Paper Dashboard
+    period: 2025
+    summary: >
+      Self-built e-paper information dashboard: Rust firmware on an ESP32,
+      hand-soldered electronics, 3D-printed housing.
+    link: https://rasmushogslatt.com/epaper-dashboard.html
+    tags: [Rust, ESP32, Embedded]
+
+  - name: Interactive WASM Raytracer
+    period: 2025
+    summary: Interactive raytracer built while exploring AI-agent-assisted coding.
+    link: https://rasmushogslatt.github.io/interactive_wasm_raytracer/
+    tags: [Rust, 3D graphics]
+
+  - name: RC Car Visualization in Mixed Reality
+    period: 2024
+    summary: >
+      Master's thesis: real-time visualization and control of an RC car in
+      Mixed Reality, with contributions to the open-source Bevy Engine.
+    tags: [Rust, C, Mixed Reality]
+
+  - name: Guitar Tablature App
+    period: 2023
+    summary: Parses MusicXML into guitar tablature with audio playback.
+    link: https://github.com/RasmusHogslatt/cdefgab
+    tags: [Rust, Audio]
+
+education:
+  - degree: MSc, Technology of Media
+    school: Linköping University
+    year: "2024"
+    note: >
+      Specialized in computer graphics and AI, with emphasis on mathematics,
+      graphics rendering, and GPU computing. Awarded a scholarship for
+      academic performance.
+
+languages:
+  - name: Swedish
+    level: Native
+  - name: English
+    level: Fluent
+  - name: German
+    level: Basic
+
+hobbies: [Guitar, Working out, Motorcycles, Reading, Donald Duck]
+
+# Optional: move sections between the sidebar and the main column, or drop
+# one entirely by leaving it out of both lists. Defaults if omitted:
+#   sidebar: [contact, skills, languages, hobbies]
+#   main:    [summary, experience, projects, education]
+# layout:
+#   sidebar: [contact, skills, languages, hobbies]
+#   main: [summary, experience, projects, education]

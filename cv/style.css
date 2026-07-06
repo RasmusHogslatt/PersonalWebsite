@@ -1,0 +1,346 @@
+/* Two-column A4 CV — dark navy sidebar (photo/contact/skills) + white main
+   column (profile/experience/projects/education). Margins are controlled
+   here (via .sidebar/.main padding, in mm) rather than by the browser's
+   print margins. */
+
+@page {
+  size: A4;
+  margin: 0;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --sidebar-w: 70mm;
+  --sidebar-bg: #16233f;
+  --sidebar-text: #eef1f6;
+  --sidebar-muted: #b9c4d6;
+  --sidebar-accent: #7fb3e8;
+  --sidebar-rule: rgba(255, 255, 255, 0.16);
+
+  --main-bg: #ffffff;
+  --ink: #1a2233;
+  --ink-muted: #55606f;
+  --ink-faint: #838d9c;
+  --accent: #1d4ed8;
+  --rule: #e2e5ea;
+  --chip-bg: #eef1f3;
+  --chip-text: #56616c;
+}
+
+body {
+  font-family: -apple-system, "Segoe UI", Helvetica, Arial, sans-serif;
+  font-size: 9.1pt;
+  line-height: 1.32;
+  color: var(--ink);
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Full-bleed split background, painted independently of document flow.
+   position:fixed elements don't contribute to scrollHeight, so this can
+   safely span exactly one A4 page (210mm x 297mm) even when the real
+   content (.page) is shorter — the navy sidebar still reaches every edge
+   without ever forcing a FLOWED box to sit exactly on the page-height
+   boundary. (That's what caused a phantom, near-empty 2nd PDF page during
+   the original single-column build — see build.js comments.) */
+.bg-fill {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 210mm;
+  height: 297mm;
+  background: linear-gradient(
+    to right,
+    var(--sidebar-bg) 0 var(--sidebar-w),
+    var(--main-bg) var(--sidebar-w) 100%
+  );
+  z-index: -1;
+}
+
+.page {
+  width: 210mm;
+  display: flex;
+  align-items: stretch;
+  /* No forced height: content-driven, per the note on .bg-fill above. */
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* ---- Sidebar ---- */
+
+.sidebar {
+  width: var(--sidebar-w);
+  flex-shrink: 0;
+  color: var(--sidebar-text);
+  padding: 12mm 7mm;
+}
+
+.sidebar-header {
+  text-align: center;
+  margin-bottom: 14px;
+}
+
+.photo {
+  width: 78px;
+  height: 78px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2.5px solid rgba(255, 255, 255, 0.5);
+  margin: 0 auto 10px;
+  display: block;
+}
+
+.sidebar-header h1 {
+  margin: 0;
+  font-size: 14.5pt;
+  font-weight: 700;
+  color: #ffffff;
+  letter-spacing: 0.01em;
+}
+
+.sidebar-header .title {
+  margin: 3px 0 0;
+  font-size: 9.3pt;
+  font-weight: 500;
+  color: var(--sidebar-accent);
+}
+
+.contact-list {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.contact-row {
+  display: flex;
+  align-items: flex-start;
+  gap: 6px;
+  font-size: 8.4pt;
+  color: var(--sidebar-muted);
+  word-break: break-word;
+}
+
+.contact-row .icon {
+  width: 11px;
+  height: 11px;
+  margin-top: 1.5px;
+  flex-shrink: 0;
+  color: var(--sidebar-accent);
+}
+
+.contact-row a {
+  color: var(--sidebar-muted);
+}
+
+.skill-group {
+  margin-bottom: 8px;
+}
+
+.skill-group:last-child {
+  margin-bottom: 0;
+}
+
+.skill-group-label {
+  margin: 0 0 3px;
+  font-size: 8.3pt;
+  font-weight: 700;
+  color: var(--sidebar-accent);
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+}
+
+.skill-items {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.skill-items li {
+  font-size: 8.6pt;
+  color: var(--sidebar-text);
+  padding: 1px 0;
+}
+
+.skill-items li::before {
+  content: "• ";
+  color: var(--sidebar-accent);
+}
+
+.lang-list {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.lang-row {
+  display: flex;
+  justify-content: space-between;
+  gap: 6px;
+  font-size: 8.6pt;
+}
+
+.lang-name {
+  color: var(--sidebar-text);
+  font-weight: 600;
+}
+
+.lang-level {
+  color: var(--sidebar-muted);
+}
+
+.hobby-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.hobby-list li {
+  font-size: 8.6pt;
+  color: var(--sidebar-text);
+  padding: 1px 0;
+}
+
+.hobby-list li::before {
+  content: "• ";
+  color: var(--sidebar-accent);
+}
+
+/* ---- Main column ---- */
+
+.main {
+  flex: 1;
+  min-width: 0;
+  color: var(--ink);
+  padding: 10mm 10mm 10mm 9mm;
+}
+
+.main a {
+  color: var(--accent);
+}
+
+/* ---- Sections (shared structure, column-specific heading color) ---- */
+
+.section {
+  margin-bottom: 10px;
+}
+
+.section:last-child {
+  margin-bottom: 0;
+}
+
+.section h2 {
+  margin: 0 0 7px;
+  font-size: 9pt;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.side-section h2 {
+  color: #ffffff;
+  border-bottom: 1px solid var(--sidebar-rule);
+  padding-bottom: 4px;
+}
+
+.main-section h2 {
+  color: var(--accent);
+  border-bottom: 0.75px solid var(--rule);
+  padding-bottom: 3px;
+}
+
+.main-section p {
+  margin: 0;
+  color: var(--ink-muted);
+}
+
+/* ---- Entries (experience / projects / education) ---- */
+
+.entry {
+  margin-bottom: 5px;
+}
+
+.entry:last-child {
+  margin-bottom: 0;
+}
+
+.entry-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 10px;
+}
+
+.entry-title {
+  font-size: 9.6pt;
+  font-weight: 700;
+  color: var(--ink);
+}
+
+/* Company/school, inline after the role/degree via a pipe separator (no
+   em-dashes) — kept bold and dark so the employer stays unambiguous even
+   sharing the line with the title. */
+.entry-org {
+  font-size: 9.6pt;
+  font-weight: 600;
+  color: var(--ink);
+}
+
+.entry-period {
+  font-size: 8.3pt;
+  color: var(--ink-faint);
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+.entry-meta .entry-period {
+  margin-left: auto;
+}
+
+.entry-summary {
+  font-size: 8.8pt;
+  color: var(--ink-muted);
+  margin-top: 1px;
+}
+
+.entry-summary p {
+  margin: 0;
+}
+
+.highlights {
+  margin: 2px 0 0;
+  padding-left: 14px;
+  font-size: 8.8pt;
+  color: var(--ink-muted);
+}
+
+.highlights li {
+  margin: 1px 0;
+}
+
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+  margin-top: 4px;
+}
+
+.chip {
+  display: inline-block;
+  font-size: 7.8pt;
+  line-height: 1;
+  padding: 3px 7px;
+  border-radius: 999px;
+  background: var(--chip-bg);
+  color: var(--chip-text);
+}
