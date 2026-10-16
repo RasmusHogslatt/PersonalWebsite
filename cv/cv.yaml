@@ -11,7 +11,7 @@
 
 profile:
   name: Rasmus Hogslätt
-  title: Software Engineer
+  title: Software Engineer / Architect
   location: Gothenburg, Sweden
   email: r.hogslatt@gmail.com
   phone: +46 720 16 23 80
@@ -26,14 +26,19 @@ profile:
   photo: ../assets/me.jpg
 
 summary: >
-  Software engineer that likes coding in Rust, with a strong background in
-  C++, Python, and 3D graphics/rendering. Curious and hands-on, having built
-  everything from embedded firmware to GPU shaders to full-stack backends.
-  I run my own company *Ankrosoft AB*, where I can do consulting on weekends/evenings and work on various projects
-  such as [mathdrilling.com](https://mathdrilling.com).
+  Software engineer who likes coding in Rust, with professional experience
+  building Rust backends on Azure and a strong background in C++, Python, and
+  3D graphics. Used to regulated and security-sensitive environments through
+  medical software at Mylab and defense products at Saab, with DevOps,
+  CI/CD, and Linux experience. Contributor to open source (Inviwo, Bevy).
+  Curious about technology overall, having built things ranging from embedded firmware to GPU
+  shaders to full-stack backends. Through my own company *Ankrosoft AB* I built
+  products such as a fullstack math learning app in Rust/WebAssembly and a Rust
+  embedded motorcycle controller for map apps.
 
 skills:
-  Favorite languages: [Rust, C++, Python, Java, JavaScript, Typescript]
+  Languages: [Rust, C++, Python, Java, C#, Ada, JavaScript, TypeScript, Kotlin]
+  Rust & Systems: [WebAssembly, FFI / C interop, Linux, Embedded]
   Domains:
     [
       Backend & APIs,
@@ -47,16 +52,17 @@ experience:
   - role: Software Engineer / Technical Architect
     company: Mylab
     period: 2025 Apr – Present
-    summary: Development of medical software, DevOps and contributing to architecting renewal of codebase.
-    highlights:
-      - "DevOps, Azure, Architecture, Agentic Coding, Javascript/Typescript, Git"
+    summary: Development of medical software, DevOps and contributing to architecting renewal of codebase. I also migrated the company from subversion to git in Azure and modernized our team's entire workflow. Also architeching and developing new features.
 
-  - role: Software engineer
+    highlights:
+      - "DevOps, CI/CD, Azure, Architecture, Agentic Coding, JavaScript/TypeScript, Git"
+
+  - role: Software Engineer
     company: Ankrosoft AB
     period: 2025 Aug – Present
     summary: >
       My own company where I can take short-term contracts and develop my own software products, including
-      [mathdrilling.com](https://mathdrilling.com).
+      a fullstack Rust web app and a Rust embedded remote for use on motorcycles.
 
   - role: Rust Backend Engineer
     company: ThirdAct
@@ -106,20 +112,20 @@ projects:
     period: 2025
     summary: Interactive raytracer built while exploring AI-agent-assisted coding.
     link: https://rasmushogslatt.github.io/interactive_wasm_raytracer/
-    tags: [Rust, 3D graphics]
+    tags: [Rust, 3D graphics, WASM]
 
   - name: RC Car Visualization in Mixed Reality
     period: 2024
     summary: >
       Master's thesis: real-time visualization and control of an RC car in
       Mixed Reality, with contributions to the open-source Bevy Engine.
-    tags: [Rust, C, Mixed Reality]
+    tags: [Rust, C, FFI, Mixed Reality, Open source]
 
   - name: Guitar Tablature App
     period: 2023
     summary: Parses MusicXML into guitar tablature with audio playback.
     link: https://github.com/RasmusHogslatt/cdefgab
-    tags: [Rust, Audio]
+    tags: [Rust, Audio, WASM]
 
 education:
   - degree: MSc, Technology of Media
